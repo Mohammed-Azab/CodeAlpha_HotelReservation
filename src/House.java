@@ -1,5 +1,4 @@
 import java.io.File;
-import java.util.*;
 public class House {
     HouseType type;
     String name;
