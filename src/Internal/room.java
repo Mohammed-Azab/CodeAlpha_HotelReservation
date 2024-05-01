@@ -1,6 +1,9 @@
+package Internal;
+
 import java.io.File;
-public class House {
-    HouseType type;
+public class room {
+    RoomType type;
+    protected static int roomNumber;
     String name;
     double price;
     int numberOfBeds;
@@ -11,19 +14,21 @@ public class House {
     boolean petFriendly;
     boolean isAvaliable;
     PhotoAlbum photoAlbum;
-    public House(String type, double p, String address, int r, int g, int b, String name, boolean f){
+    public room(String type, double p, String address, int r, int g, int b, String name, boolean f,boolean isAvaliable){
         this.name=name;
+        roomNumber++;
         this.price=p;
         this.numberOfBeds=r;
         this.numberOfRooms=g;
         this.numberOfGuests=b;
         this.Address=address;
         this.petFriendly=f;
-        this.type = HouseType.valueOf(type);
+        this.isAvaliable=isAvaliable;
+        this.type = RoomType.valueOf(type);
         photoAlbum= new PhotoAlbum();
     }
     
-    public HouseType getType(){
+    public RoomType getType(){
         return type;
     }
 
@@ -77,5 +82,11 @@ public class House {
     }
 
 
+    public Object getRoomNo() {
+        return roomNumber;
+    }
 
+    public Object getAvailability() {
+        return isAvaliable? "AVAILABLE": "UNAVAILABLE";
+    }
 }
